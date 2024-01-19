@@ -1,15 +1,6 @@
 import customtkinter as ctk
 from src.models.tarifa import Tarifa
 from src.db.conexion import ConexionDB
-# -- Tabla tarifa
-# CREATE TABLE tarifa (
-#   id NUMBER PRIMARY KEY,
-#   nombre VARCHAR2(50),
-#   monto DECIMAL(10, 2),
-#   restricciones VARCHAR2(100),
-#   vuelo_id NUMBER,
-#   CONSTRAINT fk_tarifa_vuelo FOREIGN KEY (vuelo_id) REFERENCES vuelo(id)
-# );
 
 
 class TarifaFrame(ctk.CTkFrame):

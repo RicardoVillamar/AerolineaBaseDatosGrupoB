@@ -1,15 +1,4 @@
 
-# -- Tabla informe
-# CREATE TABLE informe (
-#   id NUMBER PRIMARY KEY,
-#   fechainforme DATE,
-#   contenido VARCHAR2(255),
-#   tipoinforme VARCHAR2(50),
-#   responsable VARCHAR2(50),
-#   reserva_id NUMBER,
-#   CONSTRAINT fk_informe_reserva FOREIGN KEY (reserva_id) REFERENCES reserva(id)
-# );
-
 import random
 
 

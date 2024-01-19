@@ -63,21 +63,9 @@ CREATE TABLE TARIFA (
     CONSTRAINT FK_TARIFA_VUELO FOREIGN KEY (VUELO_ID) REFERENCES VUELO(ID)
 );
 
--- Tabla factura
-CREATE TABLE FACTURA (
-    ID NUMBER PRIMARY KEY,
-    FECHAFACTURA VARCHAR2(50),
-    MONTOTOTAL VARCHAR2(50),
-    METODOPAGO VARCHAR2(50),
-    ESTADOPAGO VARCHAR2(50),
-    RESERVA_ID NUMBER,
-    CONSTRAINT FK_FACTURA_RESERVA FOREIGN KEY (RESERVA_ID) REFERENCES RESERVA(ID)
-);
-
-
 -- Inserting 30 fictitious data entries into the VUELO table
 BEGIN
-    FOR i IN 1..30 LOOP
+    FOR I IN 1..30 LOOP
         INSERT INTO VUELO (
             ID,
             NUMEROVUELO,
@@ -90,18 +78,23 @@ BEGIN
             CLASE,
             PRECIO
         ) VALUES (
-            i,
-            'VUELO' || LPAD(i, 3, '0'),
-            TO_CHAR(SYSDATE + i, 'DD-MON-YYYY'),
-            TO_CHAR(SYSDATE + i, 'HH24:MI:SS'),
-            'City' || DBMS_RANDOM.STRING('U', 3),
-            'City' || DBMS_RANDOM.STRING('U', 3),
-            DBMS_RANDOM.VALUE(1, 10) || 'h',
+            I,
+            'VUELO'
+            || LPAD(I, 3, '0'),
+            TO_CHAR(SYSDATE + I, 'DD-MON-YYYY'),
+            TO_CHAR(SYSDATE + I, 'HH24:MI:SS'),
+            'City'
+            || DBMS_RANDOM.STRING('U', 3),
+            'City'
+            || DBMS_RANDOM.STRING('U', 3),
+            DBMS_RANDOM.VALUE(1, 10)
+                        || 'h',
             TO_CHAR(DBMS_RANDOM.VALUE(0, 5)),
             CASE WHEN DBMS_RANDOM.VALUE < 0.5 THEN 'Economy' ELSE 'Business' END,
             TO_CHAR(DBMS_RANDOM.VALUE(100, 1000), '999.99')
         );
     END LOOP;
+
     COMMIT;
 END;
 /

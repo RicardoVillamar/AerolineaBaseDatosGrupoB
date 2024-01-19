@@ -67,22 +67,22 @@ class ModificarVueloFrame(ctk.CTk):
         destino = self.entry_destino.get()
         duracion = self.entry_duracion.get()
 
-        # Verificar que todos los campos obligatorios estén llenos
+   
         if not numerovuelo or not fechasalida or not origen or not destino or not duracion:
             print("Por favor, complete todos los campos.")
             return
 
-        # Obtener el ID del vuelo seleccionado
+        
         flight_id = self.vuelo.id
 
-        # Actualizar los atributos del objeto vuelo con los nuevos datos
+
         self.vuelo.numeroVuelo = numerovuelo
         self.vuelo.fechasalida = fechasalida
         self.vuelo.origen = origen
         self.vuelo.destino = destino
         self.vuelo.duracion = duracion
 
-        # Llamar al método de modificar_vuelo de la conexión a la base de datos
+  
         conn = ConexionDB()
         success = conn.modificar_vuelo(self.vuelo)
 
@@ -100,51 +100,3 @@ class ModificarVueloFrame(ctk.CTk):
 if __name__ == "__main__":
     app = ModificarVueloFrame()
     app.mainloop()
-
-
-
-
-
-        # try:
-        #     os.environ["TNS_ADMIN"] = "ruta/al/directorio"  # Reemplaza con la ruta real
-        #     cnx = oracledb.connect(
-        #         user="C##MICKAELL_MORAN",
-        #         password="C##MICKAELL_MORAN",
-        #         dsn="localhost:1521/xe"
-        #     )
-        #     cursor = cnx.cursor()
-
-        #     # Obtener valores de los campos
-        #     numerovuelo = self.numerovuelo_entry.get()
-        #     fechasalida = self.fechasalida_entry.get()
-        #     horasalida = self.horasalida_entry.get()
-        #     origen = self.origen_entry.get()
-        #     destino = self.destino_entry.get()
-        #     duracion = self.duracion_entry.get()
-        #     escalas = self.escalas_entry.get()
-        #     clase = self.clase_entry.get()
-        #     precio = self.precio_entry.get()
-
-        #     # Modificar registro en la base de datos
-        #     cursor.execute("""UPDATE VUELO
-        #     SET NUMEROVUELO=:1, FECHASALIDA=:2, HORASALIDA=:3, ORIGEN=:4, DESTINO=:5, DURACION=:6, ESCALAS=:7, CLASE=:8, PRECIO=:9
-        #     WHERE ID=:10""",
-        #                    numerovuelo=numerovuelo, fechasalida=fechasalida, horasalida=horasalida, origen=origen, destino=destino, duracion=duracion, escalas=escalas, clase=clase, precio=precio)
-
-        #     cnx.commit()
-        #     cursor.close()
-        #     cnx.close()
-
-        #     # Limpiar campos después de modificar
-        #     self.entry_id.delete(0, ctk.END)
-        #     self.entry_descripcion.delete(0, ctk.END)
-        #     self.entry_duracion.delete(0, ctk.END)
-        #     self.entry_pais_origen.delete(0, ctk.END)
-        #     self.entry_ciudad_origen.delete(0, ctk.END)
-        #     self.entry_pais_destino.delete(0, ctk.END)
-        #     self.entry_ciudad_destino.delete(0, ctk.END)
-
-        #     print("Vuelo modificado exitosamente!")
-
-        # except oracledb.Error as e:
-        #     print(f"Error al modificar vuelo: {e}")

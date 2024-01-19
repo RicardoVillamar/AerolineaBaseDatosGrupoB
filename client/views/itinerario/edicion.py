@@ -62,7 +62,7 @@ class ModificarVueloFrame(ctk.CTk):
 
     def modificar_vuelo(self):
         try:
-              # Reemplaza con la ruta real
+    
             cnx = oracledb.connect(
                 user="C##MICKAELL_MORAN",
                 password="C##MICKAELL_MORAN",
@@ -70,7 +70,7 @@ class ModificarVueloFrame(ctk.CTk):
             )
             cursor = cnx.cursor()
 
-            # Obtener valores de los campos
+        
             id_vuelo = self.entry_id.get()
             nueva_descripcion = self.entry_descripcion.get()
             nueva_duracion = self.entry_duracion.get()
@@ -79,7 +79,7 @@ class ModificarVueloFrame(ctk.CTk):
             nuevo_pais_destino = self.entry_pais_destino.get()
             nueva_ciudad_destino = self.entry_ciudad_destino.get()
 
-            # Modificar registro en la base de datos
+   
             cursor.execute("UPDATE ITINERARIO SET DESCRIPCION=:nueva_descripcion, DURACION=:nueva_duracion, "
                            "PAISORIGEN=:nuevo_pais_origen, CIUDADORIGEN=:nueva_ciudad_origen, "
                            "PAISDESTINO=:nuevo_pais_destino, CIUDADDESTINO=:nueva_ciudad_destino "

@@ -32,8 +32,5 @@ class LoginFrame(customtkinter.CTkFrame):
         self.btn_login.pack()
 
     def login(self):
-        # Lógica de inicio de sesión aquí
-        # username = self.entry_username.get()
-        # password = self.entry_password.get()
-        # Realizar la autenticación o cualquier otra acción necesaria
+
         pass

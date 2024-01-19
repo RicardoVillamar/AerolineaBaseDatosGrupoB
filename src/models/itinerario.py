@@ -1,13 +1,3 @@
-# -- Tabla itinerario
-# CREATE TABLE itinerario (
-#   id NUMBER PRIMARY KEY,
-#   descripcion VARCHAR2(100),
-#   duracion INT,
-#   paisorigen VARCHAR2(50),
-#   ciudadorigen VARCHAR2(50),
-#   paisdestino VARCHAR2(50),
-#   ciudaddestino VARCHAR2(50)
-# );
 
 import random
 

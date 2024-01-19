@@ -2,21 +2,6 @@ import customtkinter as ctk
 from src.models.vuelo import Vuelo
 from src.db.conexion import ConexionDB
 
-# -- Tabla vuelo
-# CREATE TABLE vuelo (
-#   id NUMBER PRIMARY KEY,
-#   numerovuelo VARCHAR2(50),
-#   fechasalida DATE,
-#   horasalida TIMESTAMP,
-#   origen VARCHAR2(50),
-#   destino VARCHAR2(50),
-#   duracion INT,
-#   escalas INT,
-#   clase VARCHAR2(50),
-#   precio DECIMAL(10, 2)
-# );
-
-
 class VueloFrame(ctk.CTkFrame):
     def __init__(self, parent=None, **kwargs):
         super().__init__(parent, **kwargs)

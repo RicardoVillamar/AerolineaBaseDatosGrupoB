@@ -231,23 +231,6 @@ class ConexionDB:
             print(f"Error al modificar el vuelo: {e}")
             print("Detalles adicionales:", values)
 
-
-    
- 
-
-
-    # OBTENNER TODOS LOS VUELOS
-    # def obtener_vuelo(self, condicion_clase=None):
-    #     if condicion_clase:
-    #         sql = "SELECT * FROM VUELO WHERE CLASE=:1"
-    #         values = (condicion_clase,)
-    #         self.cursor.execute(sql, values)
-    #     else:
-    #         sql = "SELECT * FROM VUELO"
-    #         self.cursor.execute(sql)
-
-    #     return self.cursor.fetchall()
-
     # OBTENER UN VUELO POR FECHASALIDA
     def obtener_vuelo(self, condicion_clase=None):
         if condicion_clase:

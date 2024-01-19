@@ -1,14 +1,4 @@
 
-# -- Tabla factura
-# CREATE TABLE factura (
-#   id NUMBER PRIMARY KEY,
-#   fechafactura DATE,
-#   montototal DECIMAL(10, 2),
-#   metodopago VARCHAR2(50),
-#   estadopago VARCHAR2(50),
-#   reserva_id NUMBER,
-#   CONSTRAINT fk_factura_reserva FOREIGN KEY (reserva_id) REFERENCES reserva(id)
-# );
 
 import random
 

@@ -1,16 +1,3 @@
-# -- Tabla vuelo
-# CREATE TABLE vuelo (
-#   id NUMBER PRIMARY KEY,
-#   numerovuelo VARCHAR2(50),
-#   fechasalida DATE,
-#   horasalida TIMESTAMP,
-#   origen VARCHAR2(50),
-#   destino VARCHAR2(50),
-#   duracion INT,
-#   escalas INT,
-#   clase VARCHAR2(50),
-#   precio DECIMAL(10, 2)
-# );
 
 import random
 from datetime import datetime

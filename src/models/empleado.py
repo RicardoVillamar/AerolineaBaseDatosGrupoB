@@ -1,13 +1,6 @@
 
 import random
 
-# CREATE TABLE empleado (
-#   id INT PRIMARY KEY,
-#   usuario VARCHAR2(50),
-#   contrasena VARCHAR2(50),
-#   dni VARCHAR2(20)
-# );
-
 
 class Empleado:
     def __init__(self, usuario=None, contrasena=None, dni=None):

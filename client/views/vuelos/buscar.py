@@ -4,7 +4,7 @@ from tkinter import ttk
 from src.models.vuelo import Vuelo
 from src.db.conexion import ConexionDB
 from .edicion import ModificarVueloFrame
-# from src.db.conexion import ConexionDB
+
 
 
 class BuscarFrame(ctk.CTkFrame):
@@ -33,7 +33,7 @@ class BuscarFrame(ctk.CTkFrame):
         # Crear tabla
         
         self.tabla = ttk.Treeview(self, columns=('ID', 'NumeroVuelo', 'Fecha', 'Origen', 'Destino' ,'Duracion'))
-         # Configurar columnas
+
         self.tabla.heading('#0', text='ID')
         self.tabla.heading('#1', text='NumeroVuelo')
         self.tabla.heading('#2', text='Fecha')
@@ -53,36 +53,36 @@ class BuscarFrame(ctk.CTkFrame):
         
         obtener_vuelos = ConexionDB()
 
-        # Limpia la tabla antes de agregar nuevos datos
+
         for item in self.tabla.get_children():
             self.tabla.delete(item)
 
         try:
-            # Obtiene vuelos según el término de búsqueda (clase)
+    
             dato_busqueda = self.box_buscar.get()
             vuelos = obtener_vuelos.obtener_vuelo(condicion_clase=dato_busqueda)
 
-            # Agrega los resultados a la tabla
+
             for vuelo in vuelos:
                 self.tabla.insert('', 'end', values=(
                     vuelo[0], vuelo[1], vuelo[2], vuelo[3], vuelo[4], vuelo[5]))
 
         except Exception as e:
-         # Maneja las excepciones, por ejemplo, muestra un mensaje de error
+       
             print(f"Error al buscar vuelos: {e}")
    
         
 
     def abrir_modificar_vuelo(self):
-    # Obtener el ítem seleccionado en la tabla
+
         selected_item = self.tabla.selection()
 
         if selected_item:
-            # Obtener los valores de la fila seleccionada
+          
             values = self.tabla.item(selected_item, 'values')
             print("Datos seleccionados:", values)
 
-            # Desempaquetar los valores y pasarlos como argumentos
+        
             id_vuelo, numero_vuelo, fecha_salida, origen, destino, duracion = values
             modificar_vuelo_frame = ModificarVueloFrame(
                 self, id_vuelo, numero_vuelo, fecha_salida, origen, destino, duracion)
@@ -90,36 +90,10 @@ class BuscarFrame(ctk.CTkFrame):
 
 
     def seleccionar_vuelo(self, event):
-        # Puedes utilizar este método si prefieres obtener la selección al hacer clic
+     
         selected_item = self.tabla.selection()
         if selected_item:
             # Obtener los valores de la fila seleccionada
             values = self.tabla.item(selected_item, 'values')
             print("Datos seleccionados:", values)
 
-
-
-
-    #BUSCAR GENERAL // CARGAR TABLA
-
-    # def submit(self):
-    #     obtener_vuelos = ConexionDB()
-
-    # # Limpia la tabla antes de agregar nuevos datos
-    #     for item in self.tabla.get_children():
-    #         self.tabla.delete(item)
-
-    #     try:
-    #         # Obtiene vuelos según el término de búsqueda (clase)
-    #         clase_busqueda = self.box_buscar.get()
-    #         vuelos = obtener_vuelos.obtener_vuelo(condicion_clase=clase_busqueda)
-
-    #         # Agrega los resultados a la tabla
-    #         for vuelo in vuelos:
-    #             self.tabla.insert('', 'end', values=(
-    #             vuelo, vuelo, vuelo, vuelo, vuelo, vuelo))
-
-    #     except Exception as e:
-    #     # Maneja las excepciones, por ejemplo, muestra un mensaje de error
-    #         print(f"Error al buscar vuelos: {e}")
-    

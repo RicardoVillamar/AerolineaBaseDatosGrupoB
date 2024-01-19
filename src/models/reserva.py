@@ -1,16 +1,3 @@
-# -- Tabla reserva
-# CREATE TABLE reserva (
-#   id NUMBER PRIMARY KEY,
-#   fechareserva DATE,
-#   asientos INT,
-#   asientosclaseeconomica INT,
-#   asientosclaseejecutiva INT,
-#   asientosprimeraclase INT,
-#   vuelo_id NUMBER,
-#   cliente_id NUMBER,
-#   CONSTRAINT fk_reserva_vuelo FOREIGN KEY (vuelo_id) REFERENCES vuelo(id),
-#   CONSTRAINT fk_reserva_cliente FOREIGN KEY (cliente_id) REFERENCES cliente(id_cliente)
-# );
 
 import random
 

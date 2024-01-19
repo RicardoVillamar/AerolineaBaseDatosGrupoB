@@ -56,7 +56,7 @@ class RegistrarVueloFrame(ctk.CTk):
 
     def registrar_vuelo(self):
         try:
-            os.environ["TNS_ADMIN"] = "ruta/al/directorio"  # Reemplaza con la ruta real
+            os.environ["TNS_ADMIN"] = "ruta/al/directorio"  
             cnx = oracledb.connect(
                 user="C##MICKAELL_MORAN",
                 password="C##MICKAELL_MORAN",
@@ -64,7 +64,7 @@ class RegistrarVueloFrame(ctk.CTk):
             )
             cursor = cnx.cursor()
 
-            # Obtener valores de los campos
+   
             descripcion = self.entry_descripcion.get()
             duracion = self.entry_duracion.get()
             pais_origen = self.entry_pais_origen.get()
@@ -72,7 +72,6 @@ class RegistrarVueloFrame(ctk.CTk):
             pais_destino = self.entry_pais_destino.get()
             ciudad_destino = self.entry_ciudad_destino.get()
 
-            # Insertar nuevo vuelo en la base de datos
             cursor.execute("INSERT INTO ITINERARIO (DESCRIPCION, DURACION, PAISORIGEN, CIUDADORIGEN, PAISDESTINO, CIUDADDESTINO) "
                            "VALUES (:descripcion, :duracion, :pais_origen, :ciudad_origen, :pais_destino, :ciudad_destino)",
                            descripcion=descripcion, duracion=duracion, pais_origen=pais_origen,
@@ -82,7 +81,6 @@ class RegistrarVueloFrame(ctk.CTk):
             cursor.close()
             cnx.close()
 
-            # Limpiar campos después de registrar
             self.entry_descripcion.delete(0, ctk.END)
             self.entry_duracion.delete(0, ctk.END)
             self.entry_pais_origen.delete(0, ctk.END)

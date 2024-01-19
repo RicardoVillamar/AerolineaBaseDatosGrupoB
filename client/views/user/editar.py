@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from src.models.empleado import Empleado
-# from src.db.conexion import ConexionDB
+
 
 
 class EmpleadoFrame(ctk.CTkFrame):
@@ -41,7 +41,3 @@ class EmpleadoFrame(ctk.CTkFrame):
         usuario = self.usuario_entry.get()
         contrasena = self.contrasena_entry.get()
         dni = self.dni_entry.get()
-
-        # conn = ConexionDB()
-        # conn.insert_empleado(Empleado(
-        #     usuario=usuario, contrasena=contrasena, dni=dni))
